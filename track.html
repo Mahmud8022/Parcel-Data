@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-widthinitial-scale=1.0">
+  <title></title>
+</head>
+<body>
+      <h2>🔍 Track Parcel</h2>
+      <input id="trackId" placeholder="Enter tracking ID">
+      <button onclick="track()">Track</button>
+
+      <h3 id="output"></h3>
+
+      <script>
+        function track() {
+          const id = document.getElementById("trackId").value;
+
+          const data = localStorage.getItem(id);
+
+          if(data){
+            const parcel = JSON.parse(data);
+
+            document.getElementById("output").innerText = 
+            "Status: " + parcel.status;
+          } else {
+            document.getElementById("output").innerText =
+            "❌ Parcel Not Found";
+          }
+        }
+      </script>
+</body>
+</html>
